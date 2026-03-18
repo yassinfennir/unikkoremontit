@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unikkoremontit | Espoo</title>
+<meta name="description" content="Unikkoremontit — Laadukkaat palvelut Espoossa. Ota yhteyttä ja varaa aikasi tänään.">
+<meta property="og:title" content="Unikkoremontit | Espoo">
+<meta property="og:description" content="Laadukkaat palvelut Espoossa. Ota yhteyttä ja varaa aikasi tänään.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fi_FI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x2B50;</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Unikkoremontit",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Espoo",
+    "addressCountry": "FI"
+  },
+  "telephone": "050 432 6092",
+  "email": "info@unikkoremontit.net"
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --primary:#6366f1;
+  --primary-glow:#6366f140;
+  --accent:#22d3ee;
+  --bg:#030712;
+  --bg-2:#0a0f1e;
+  --bg-3:#111827;
+  --text:#f9fafb;
+  --text-muted:#9ca3af;
+  --border:rgba(255,255,255,.06);
+  --card:rgba(255,255,255,.03);
+  --card-hover:rgba(255,255,255,.06);
+  --radius:16px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
+}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+
+/* ===== UTILITY ===== */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:120px 0}
+.section-label{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;padding:6px 16px;border:1px solid rgba(34,211,238,.2);border-radius:100px;background:rgba(34,211,238,.05)}
+.section-title{font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:20px}
+.section-desc{font-size:1.125rem;color:var(--text-muted);max-width:600px;line-height:1.7}
+.text-center{text-align:center}
+.mx-auto{margin-left:auto;margin-right:auto}
+.gradient-text{background:linear-gradient(135deg,var(--text) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ===== NAVBAR ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .3s ease}
+.nav.scrolled{background:rgba(3,7,18,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:1.25rem;font-weight:700;letter-spacing:-.02em}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.875rem;color:var(--text-muted);transition:color .3s;font-weight:500}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{padding:10px 24px;background:var(--primary);color:#fff;border:none;border-radius:100px;font-size:.875rem;font-weight:600;cursor:pointer;transition:all .3s;box-shadow:0 0 20px var(--primary-glow)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 30px var(--primary-glow),0 4px 20px rgba(0,0,0,.3)}
+.nav-mobile-btn{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;padding:8px}
+.nav-mobile-menu{display:none;position:fixed;inset:0;background:rgba(3,7,18,.97);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.nav-mobile-menu.open{display:flex}
+.nav-mobile-menu a{font-size:1.25rem;color:var(--text);font-weight:500}
+.nav-mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--text);font-size:1.75rem;cursor:pointer}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--primary-glow) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;top:20%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(34,211,238,.08) 0%,transparent 70%);pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border:1px solid var(--border);border-radius:100px;font-size:.8rem;color:var(--text-muted);margin-bottom:32px;background:var(--card)}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse-dot 2s ease infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(2.75rem,7vw,5rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:24px}
+.hero p{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--text-muted);max-width:560px;line-height:1.7;margin-bottom:40px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:100px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s;border:none}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 0 30px var(--primary-glow),0 2px 10px rgba(0,0,0,.2)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px var(--primary-glow),0 8px 30px rgba(0,0,0,.3)}
+.btn-secondary{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.15)}
+.btn-secondary:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04)}
+.hero-stats{display:flex;gap:48px;margin-top:64px;padding-top:40px;border-top:1px solid var(--border)}
+.hero-stat-number{font-size:2rem;font-weight:700;letter-spacing:-.02em}
+.hero-stat-label{font-size:.8rem;color:var(--text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
+
+/* ===== SERVICES ===== */
+.services-section{background:var(--bg-2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.service-card{padding:40px 32px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);transition:all .4s ease;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(99,102,241,.05) 0%,transparent 50%);opacity:0;transition:opacity .4s}
+.service-card:hover{border-color:rgba(99,102,241,.2);transform:translateY(-4px);background:var(--card-hover)}
+.service-card:hover::before{opacity:1}
+.service-icon{font-size:2.5rem;margin-bottom:24px;display:block}
+.service-card h3{font-size:1.25rem;font-weight:700;margin-bottom:12px;letter-spacing:-.01em}
+.service-card p{font-size:.95rem;color:var(--text-muted);line-height:1.7}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-image{aspect-ratio:4/5;background:var(--bg-3);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;position:relative}
+.about-image-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(135deg,var(--bg-2) 0%,var(--bg-3) 100%)}
+.about-text{max-width:500px}
+.about-text p{color:var(--text-muted);margin-bottom:20px;line-height:1.8}
+.about-feature{display:flex;align-items:center;gap:12px;padding:12px 0}
+.about-feature-icon{width:36px;height:36px;border-radius:10px;background:rgba(99,102,241,.1);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.about-feature span{font-size:.95rem;font-weight:500}
+
+/* ===== GALLERY ===== */
+.gallery-section{background:var(--bg-2)}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
+.gallery-item{aspect-ratio:16/10;background:var(--bg-3);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);cursor:pointer;position:relative}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--bg-2) 0%,var(--bg-3) 100%);transition:transform .6s ease}
+.gallery-item:hover .gallery-item-placeholder{transform:scale(1.06)}
+.gallery-item:first-child{grid-row:span 2;aspect-ratio:auto}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.testimonial-card{padding:40px 32px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);transition:all .3s}
+.testimonial-card:hover{border-color:rgba(99,102,241,.15)}
+.testimonial-stars{color:#fbbf24;font-size:1rem;letter-spacing:2px;margin-bottom:20px}
+.testimonial-text{font-size:1rem;color:var(--text-muted);line-height:1.8;margin-bottom:28px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:14px}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;color:#fff}
+.testimonial-name{font-weight:600;font-size:.95rem}
+.testimonial-role{font-size:.8rem;color:var(--text-muted);margin-top:2px}
+
+/* ===== CONTACT ===== */
+.contact-section{background:var(--bg-2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:56px}
+.contact-form{display:flex;flex-direction:column;gap:20px}
+.form-group label{display:block;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:8px}
+.form-group input,.form-group textarea{width:100%;padding:14px 18px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:1rem;font-family:var(--font);transition:border-color .3s,box-shadow .3s;outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-glow)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-submit{padding:16px 32px;background:var(--primary);color:#fff;border:none;border-radius:100px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s;box-shadow:0 0 20px var(--primary-glow);align-self:flex-start}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 0 40px var(--primary-glow)}
+.contact-info{display:flex;flex-direction:column;gap:32px}
+.contact-info-item{display:flex;gap:16px;align-items:flex-start}
+.contact-info-icon{width:48px;height:48px;border-radius:14px;background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.15);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.contact-info-label{font-size:.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.contact-info-value{font-size:1.05rem;font-weight:500}
+.contact-info-value a{transition:color .3s}
+.contact-info-value a:hover{color:var(--accent)}
+.contact-map{margin-top:16px;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--bg-3)}
+.contact-map iframe{width:100%;height:100%;border:0;filter:grayscale(.8) brightness(.7) contrast(1.1)}
+.hours-grid{display:grid;gap:8px;margin-top:8px}
+.hours-row{display:flex;justify-content:space-between;font-size:.9rem;padding:6px 0;border-bottom:1px solid var(--border)}
+.hours-row:last-child{border:none}
+.hours-day{color:var(--text-muted)}
+.hours-time{font-weight:500}
+
+/* ===== FOOTER ===== */
+.footer{padding:80px 0 40px;border-top:1px solid var(--border)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:64px;margin-bottom:60px}
+.footer-brand p{color:var(--text-muted);margin-top:16px;line-height:1.7;max-width:320px;font-size:.95rem}
+.footer h4{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--text-muted);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links a{color:var(--text-muted);font-size:.95rem;transition:color .3s}
+.footer-links a:hover{color:var(--text)}
+.footer-social{display:flex;gap:12px;margin-top:24px}
+.footer-social a{width:40px;height:40px;border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s;color:var(--text-muted)}
+.footer-social a:hover{border-color:var(--primary);color:var(--primary);background:rgba(99,102,241,.05)}
+.footer-bottom{text-align:center;padding-top:40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem}
+
+/* ===== WHATSAPP BUTTON ===== */
+.whatsapp-float{position:fixed;bottom:28px;right:28px;z-index:900;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.75rem;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.3);cursor:pointer;transition:all .3s;text-decoration:none;border:none}
+.whatsapp-float:hover{transform:scale(1.08);box-shadow:0 6px 30px rgba(37,211,102,.45)}
+.whatsapp-float svg{width:28px;height:28px;fill:#fff}
+
+/* ===== DIVIDER LINE ===== */
+.section-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .testimonials-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .section{padding:80px 0}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .nav-mobile-btn{display:block}
+  .hero{min-height:auto;padding:140px 0 80px}
+  .hero h1{font-size:clamp(2.25rem,8vw,3.5rem)}
+  .hero-stats{flex-direction:column;gap:24px}
+  .services-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-grid>:first-child{order:2}
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-item:first-child{grid-row:auto}
+  .testimonials-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:48px}
+  .footer-grid{grid-template-columns:1fr;gap:40px}
+  .hero-buttons{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo" style="display:flex;align-items:center;gap:10px"><span style="display:inline-flex"><svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6366f1"/><stop offset="100%" style="stop-color:#22d3ee"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="url(#lg)"/><text x="20" y="28" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="white" text-anchor="middle">U</text></svg></span>Unikkoremontit</a>
+    <ul class="nav-links">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#meista">Meistä</a></li>
+      <li><a href="#galleria">Galleria</a></li>
+      <li><a href="#arvostelut">Arvostelut</a></li>
+      <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+    </ul>
+    <a href="#yhteystiedot" class="nav-cta">Ota yhteyttä</a>
+    <button class="nav-mobile-btn" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Avaa valikko">&#9776;</button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <button class="nav-mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Sulje valikko">&times;</button>
+  <a href="#palvelut" onclick="document.getElementById('mobileMenu').classList.remove('open')">Palvelut</a>
+  <a href="#meista" onclick="document.getElementById('mobileMenu').classList.remove('open')">Meistä</a>
+  <a href="#galleria" onclick="document.getElementById('mobileMenu').classList.remove('open')">Galleria</a>
+  <a href="#arvostelut" onclick="document.getElementById('mobileMenu').classList.remove('open')">Arvostelut</a>
+  <a href="#yhteystiedot" onclick="document.getElementById('mobileMenu').classList.remove('open')">Yhteystiedot</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="background-image:linear-gradient(to bottom, rgba(3,7,18,0.7), rgba(3,7,18,0.9)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=1080&fit=crop&q=80');background-size:cover;background-position:center">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span></span> Tervetuloa — Espoo
+      </div>
+      <h1 class="reveal">
+        <span class="gradient-text">Unikkoremontit</span>
+      </h1>
+      <p class="reveal">Laadukkaat palvelut luotettavasti Espoossa. Ammattitaitoa, intohimoa ja aitoa välittämistä jokaisessa projektissa.</p>
+      <div class="hero-buttons reveal">
+        <a href="#yhteystiedot" class="btn btn-primary">Varaa aika &#8594;</a>
+        <a href="#palvelut" class="btn btn-secondary">Tutustu palveluihin</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div>
+          <div class="hero-stat-number">500+</div>
+          <div class="hero-stat-label">Tyytyväistä asiakasta</div>
+        </div>
+        <div>
+          <div class="hero-stat-number">10+</div>
+          <div class="hero-stat-label">Vuotta kokemusta</div>
+        </div>
+        <div>
+          <div class="hero-stat-number">&#9733; 4.9</div>
+          <div class="hero-stat-label">Google-arvosana</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== SERVICES ===== -->
+<section class="services-section section" id="palvelut">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Palvelut</span>
+      <h2 class="section-title reveal">Mitä me teemme</h2>
+      <p class="section-desc mx-auto reveal">Tarjoamme laajan valikoiman palveluita, jotka on suunniteltu juuri sinun tarpeisiisi.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <span class="service-icon">&#9889;</span>
+        <h3>Palvelu 1</h3>
+        <p>Kuvaus ensimmäisestä palvelusta. Kerro asiakkaalle, mitä hyötyä hän saa tästä palvelusta.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <span class="service-icon">&#10024;</span>
+        <h3>Palvelu 2</h3>
+        <p>Kuvaus toisesta palvelusta. Selitä selkeästi, miten tämä palvelu auttaa asiakasta.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <span class="service-icon">&#128640;</span>
+        <h3>Palvelu 3</h3>
+        <p>Kuvaus kolmannesta palvelusta. Korosta laatua, ammattitaitoa ja luotettavuutta.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <span class="service-icon">&#128161;</span>
+        <h3>Palvelu 4</h3>
+        <p>Kuvaus neljännestä palvelusta. Kerro, miksi asiakkaan kannattaa valita juuri teidät.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <span class="service-icon">&#127919;</span>
+        <h3>Palvelu 5</h3>
+        <p>Kuvaus viidennestä palvelusta. Tuo esiin kokemuksesi ja asiantuntemuksesi tällä alueella.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <span class="service-icon">&#128170;</span>
+        <h3>Palvelu 6</h3>
+        <p>Kuvaus kuudennesta palvelusta. Mainitse mahdolliset takuut tai lupaukset asiakkaalle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== ABOUT ===== -->
+<section class="section" id="meista">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <div class="about-image-placeholder">&#128100;</div>
+      </div>
+      <div class="about-text">
+        <span class="section-label reveal">Meistä</span>
+        <h2 class="section-title reveal">Intohimoa ja ammattitaitoa vuodesta 2014</h2>
+        <p class="reveal">Olemme Espoossa toimiva yritys, joka on sitoutunut tarjoamaan parasta mahdollista palvelua jokaiselle asiakkaalle.</p>
+        <p class="reveal">Uskomme, että laadukas työ puhuu puolestaan. Jokainen projekti on meille tärkeä, ja tavoitteenamme on ylittää odotuksesi joka kerta.</p>
+        <div class="reveal">
+          <div class="about-feature">
+            <div class="about-feature-icon">&#10003;</div>
+            <span>Yli 10 vuoden kokemus</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">&#10003;</div>
+            <span>Henkilökohtainen palvelu</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">&#10003;</div>
+            <span>100% tyytyväisyystakuu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery-section section" id="galleria">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Galleria</span>
+      <h2 class="section-title reveal">Tutustu töihimme</h2>
+      <p class="section-desc mx-auto reveal">Tässä muutama esimerkki siitä, mitä olemme saaneet aikaan.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop&q=80" alt="Unikkoremontit - Tilat" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=450&fit=crop&q=80" alt="Unikkoremontit - Palvelumme" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div class="gallery-item reveal reveal-delay-3">
+        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&h=450&fit=crop&q=80" alt="Unikkoremontit - Tiimimme" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section" id="arvostelut">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Arvostelut</span>
+      <h2 class="section-title reveal">Asiakkaamme kertovat</h2>
+      <p class="section-desc mx-auto reveal">Lue, mitä tyytyväiset asiakkaamme sanovat meistä.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"Erinomaista palvelua alusta loppuun. Suosittelen lämpimästi kaikille. Ammattitaitoinen ja luotettava yritys."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <div class="testimonial-name">Matti V.</div>
+            <div class="testimonial-role">Espoo</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"Paras valinta, jonka olemme tehneet. Työn laatu ylitti kaikki odotuksemme. Tulemme ehdottomasti käyttämään uudelleen."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Sanna K.</div>
+            <div class="testimonial-role">Espoo</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"Nopea, ammattitaitoinen ja todella ystävällinen palvelu. Hinnat ovat kilpailukykyiset ja lopputulos erinomainen."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div>
+            <div class="testimonial-name">Jari L.</div>
+            <div class="testimonial-role">Espoo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact-section section" id="yhteystiedot">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Yhteystiedot</span>
+      <h2 class="section-title reveal">Ota yhteyttä</h2>
+      <p class="section-desc mx-auto reveal">Haluatko kuulla lisää? Ota rohkeasti yhteyttä — vastaamme nopeasti!</p>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form reveal" onsubmit="return false;">
+        <div class="form-group">
+          <label for="name">Nimi</label>
+          <input type="text" id="name" name="name" placeholder="Kirjoita nimesi" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Sähköposti</label>
+          <input type="email" id="email" name="email" placeholder="esimerkki@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Puhelinnumero</label>
+          <input type="tel" id="phone" name="phone" placeholder="+358 ...">
+        </div>
+        <div class="form-group">
+          <label for="message">Viesti</label>
+          <textarea id="message" name="message" rows="4" placeholder="Kerro, miten voimme auttaa..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Lähetä viesti &#8594;</button>
+      </form>
+      <div class="contact-info reveal">
+        <div class="contact-info-item">
+          <div class="contact-info-icon">&#128205;</div>
+          <div>
+            <div class="contact-info-label">Osoite</div>
+            <div class="contact-info-value">Espoo, Suomi</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">&#128222;</div>
+          <div>
+            <div class="contact-info-label">Puhelin</div>
+            <div class="contact-info-value"><a href="tel:050 432 6092">050 432 6092</a></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">&#9993;</div>
+          <div>
+            <div class="contact-info-label">Sähköposti</div>
+            <div class="contact-info-value"><a href="mailto:info@unikkoremontit.net">info@unikkoremontit.net</a></div>
+          </div>
+        </div>
+        <div>
+          <div class="contact-info-label" style="margin-bottom:8px">&#128336; Aukioloajat</div>
+          <div class="hours-grid">
+            <div class="hours-row"><span class="hours-day">Maanantai - Perjantai</span><span class="hours-time">09:00 - 18:00</span></div>
+            <div class="hours-row"><span class="hours-day">Lauantai</span><span class="hours-time">10:00 - 16:00</span></div>
+            <div class="hours-row"><span class="hours-day">Sunnuntai</span><span class="hours-time">Suljettu</span></div>
+          </div>
+        </div>
+        <div class="contact-map">
+          <!-- Google Maps embed: replace src with actual embed URL -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000!2d24.9384!3d60.1699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1sfi!2sfi" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">Unikkoremontit</div>
+        <p>Laadukkaat palvelut Espoossa. Luotettava kumppani jo vuodesta 2014.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">&#9679;</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div>
+        <h4>Sivusto</h4>
+        <ul class="footer-links">
+          <li><a href="#palvelut">Palvelut</a></li>
+          <li><a href="#meista">Meistä</a></li>
+          <li><a href="#galleria">Galleria</a></li>
+          <li><a href="#arvostelut">Arvostelut</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yhteystiedot</h4>
+        <ul class="footer-links">
+          <li><a href="tel:050 432 6092">050 432 6092</a></li>
+          <li><a href="mailto:info@unikkoremontit.net">info@unikkoremontit.net</a></li>
+          <li>Espoo, Suomi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Unikkoremontit. Kaikki oikeudet pidätetään.
+    </div>
+  </div>
+<div style="text-align:center;padding:16px 0;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:rgba(255,255,255,0.3)">Verkkosivut: <a href="https://elfennir.com" style="color:rgba(255,255,255,0.5);text-decoration:none" target="_blank">elfennir.com</a></div></footer>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/050 432 6092" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+// Navbar scroll effect
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)},{passive:true});
+
+// Intersection Observer for scroll animations
+const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
